@@ -1,0 +1,14 @@
+hub:
+  image: selenium/hub
+  ports:
+    - "4545:4444"
+firefox:
+  image: selenium/node-firefox
+  links:
+    - hub
+chrome:
+  image: selenium/node-chrome
+  volumes:
+    - /dev/shm:/dev/shm
+  links:
+    - hub
